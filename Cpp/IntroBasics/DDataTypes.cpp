@@ -17,6 +17,11 @@ void passbypointer(int *x){
     cout << "address of value : " << (x) << endl;
 }
 
+//functions
+int add(int a,int b){
+    return a+b;
+}
+
 int main(){
     int arr[]={1,2,3,4,5};
     for(int i:arr){
@@ -33,6 +38,17 @@ int main(){
     passbypointer(p);
     cout << "value : " << (*p) << endl;
     cout << "address of value : " << (p) << endl;
+
+    //functions
+    cout << add(5,3) << endl;
+    
+    if(a<3){
+        cout << "Less than 3" << endl;
+    }else if(a<6){
+        cout<< "Less than 6" << endl;
+    }else{
+        cout << "greater than or equal to 6" <<endl;
+    }
 
     return 0;
 }
