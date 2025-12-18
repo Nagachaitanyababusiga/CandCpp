@@ -194,6 +194,8 @@ int tut_unordered_multimap(){
     return 0;
 }
 
+
+//ordered map
 int tut_ordered_multimap(){
     multimap<int,int> mp;
     int count = 0;
@@ -217,6 +219,56 @@ int tut_ordered_multimap(){
     return 0;
 }
 
+
+//queue
+int tut_queue(){
+    queue<int> q;
+    for(int i=1;i<10;i++) q.push(i);
+    int count=0;
+    while(count++<4){
+        cout << " front: " << q.front() << " back: " << q.back() << endl;
+        q.pop();
+    }
+    return 0;
+}
+
+//deque
+int tut_deque(){
+    deque<int> dq;
+    for(int i=1;i<10;i++) dq.push_back(i);
+    int count=0;
+    while(count++<4){
+        cout << " front: " << dq.front() << " back: " << dq.back() << endl;
+        if(count%2) dq.pop_front();
+        else dq.pop_back();
+    }
+    return 0;
+}
+
+//custom comparator for priorityqueue
+struct comparator{
+    bool operator()(int a,int b){
+        return a<b;
+    }
+};
+
+//priority Queue
+int tut_pq(){
+    priority_queue<int,vector<int>,greater<int>> pq;
+    for(int i=0;i<10;i++) pq.push(i+1);
+    while(!pq.empty()){
+        cout << pq.top() << endl;
+        pq.pop();
+    }
+    priority_queue<int,vector<int>,comparator> pq1;
+    for(int i=0;i<10;i++) pq1.push(i+1);
+    while(!pq1.empty()){
+        cout << pq1.top() << endl;
+        pq1.pop();
+    }
+    return 0;
+}
+
 int main(){
     int a;
     //a=tut_vec();
@@ -227,6 +279,9 @@ int main(){
     // a=tut_unordered_map();
     // a=tut_ordered_map();
     // a=tut_unordered_multimap();
-    a=tut_ordered_multimap();
+    // a=tut_ordered_multimap();
+    // a=tut_queue();
+    // a=tut_deque();
+    // a=tut_pq();
     return a;
 }
