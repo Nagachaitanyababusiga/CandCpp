@@ -26,6 +26,34 @@ void print_oms(multiset<int> &vet){
     cout << endl;
 }
 
+void print_uom(unordered_map<int,int> &mp){
+    for(auto &i:mp){
+        cout << i.first << " : " << i.second << ";  ";
+    }
+    cout << endl;
+}
+
+void print_om(map<int,int> &mp){
+    for(auto &i:mp){
+        cout << i.first << " : " << i.second << ";  ";
+    }
+    cout << endl;
+}
+
+void print_umm(unordered_multimap<int,int> &mp){
+    for(const auto &it: mp){
+        cout << "[" << it.first << " -> " << it.second << "]";
+    }
+    cout << endl;
+}
+
+void print_omm(multimap<int,int> &mp){
+    for(const auto &it: mp){
+        cout << "[" << it.first << " -> " << it.second << "]";
+    }
+    cout << endl;
+}
+
 //vector
 int tut_vec(){
     vector<int> vec;
@@ -112,12 +140,93 @@ int tut_ordered_multiset(){
     return 0;
 }
 
+//unordered map
+int tut_unordered_map(){
+    unordered_map<int,int> mp;
+    int count=0;
+    while(count<10){
+        for(int i=1;i<10;i++){
+            if(mp.count(i)) mp[i]+=1;
+            else mp[i]=1;
+        }
+        count++;
+    }
+    print_uom(mp);
+    return 0;
+}
+
+//ordered map
+int tut_ordered_map(){
+    map<int,int> mp;
+    int count=0;
+    while(count<10){
+        for(int i=1;i<10;i++){
+            if(mp.count(i)) mp[i]+=1;
+            else mp[i]=1;
+        }
+        count++;
+    }
+    print_om(mp);
+    return 0;
+}
+
+//unordered mutlimap
+int tut_unordered_multimap(){
+    unordered_multimap<int,int> mp;
+    int count = 0;
+    srand(time(0));
+    while(count < 20){
+        int rn=rand()%10;
+        mp.insert({rn,rand()%100});
+        count++;
+    }
+    print_umm(mp);
+    auto it=mp.equal_range(4);
+    auto i=it.first;
+    mp.erase(mp.equal_range(4).first);
+    print_umm(mp);
+    for(;i!=it.second;i++){
+        cout << "[" << i->first << " -> " << i->second << "]";
+    }
+    cout << endl;
+    mp.erase(4);
+    print_umm(mp);
+    return 0;
+}
+
+int tut_ordered_multimap(){
+    multimap<int,int> mp;
+    int count = 0;
+    srand(time(0));
+    while(count < 20){
+        int rn=rand()%10;
+        mp.insert({rn,rand()%100});
+        count++;
+    }
+    print_omm(mp);
+    auto it=mp.equal_range(4);
+    auto i=it.first;
+    mp.erase(mp.equal_range(4).first);
+    print_omm(mp);
+    for(;i!=it.second;i++){
+        cout << "[" << i->first << " -> " << i->second << "]";
+    }
+    cout << endl;
+    mp.erase(4);
+    print_omm(mp);
+    return 0;
+}
+
 int main(){
     int a;
     //a=tut_vec();
     //a=tut_unordered_set();
     //a=tut_ordered_uniq_set();
     // a=tut_unordered_multiset();
-    a=tut_ordered_multiset();
+    // a=tut_ordered_multiset();
+    // a=tut_unordered_map();
+    // a=tut_ordered_map();
+    // a=tut_unordered_multimap();
+    a=tut_ordered_multimap();
     return a;
 }

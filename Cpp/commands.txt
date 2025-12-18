@@ -1,3 +1,3 @@
 cd .\Cpp\IntroBasics\
-g++ .\DDataTypes.cpp -o  ..\Executables\DDataTypes.exe
-..\Executables\DDataTypes.exe 
+g++ .\STLLibDS.cpp -o  ..\Executables\STLLibDS.exe
+..\Executables\STLLibDS.exe 
