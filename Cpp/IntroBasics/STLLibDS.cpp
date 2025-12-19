@@ -269,6 +269,55 @@ int tut_pq(){
     return 0;
 }
 
+//list
+int tut_lst(){
+    list<int> lst;
+    lst.push_back(1);
+    lst.push_front(2);
+    lst.push_back(4);
+    lst.push_front(3);
+    lst.push_back(1);
+    auto it = lst.begin();
+    while(it!=lst.end()) cout << *(it++) << " ";
+    cout << endl;
+    auto index = find(lst.begin(),lst.end(),4);
+    while(index!=lst.end()) cout << *(index++) << " ";
+    return 0;
+}
+
+//nxt_permutation
+int nxt_perm(){
+    vector<int> v={1,2,3,4,5};
+    do{
+        for(int i:v) cout << i << " ";
+        cout << endl;
+    }while(next_permutation(v.begin(),v.end()));
+    return 0;
+}
+
+//popCount()
+int pop_count(){
+    int x=15;
+    int set_bits=__builtin_popcount(x);
+    cout << set_bits << endl;
+    return 0;
+}
+
+//final op
+int final_op(){
+    vector<int> vec;
+    srand(time(0));
+    for(int i=0;i<16;i++) vec.push_back(rand()%100);
+    print(vec);
+    sort(vec.begin(),vec.end());
+    print(vec);
+    sort(vec.rbegin(),vec.rend());
+    print(vec);
+    cout << "max element is : " << *max_element(vec.begin(),vec.end()) << endl;
+    cout << "min element is : " << *min_element(vec.begin(),vec.end()) << endl;
+    return 0;
+}
+
 int main(){
     int a;
     //a=tut_vec();
@@ -283,5 +332,9 @@ int main(){
     // a=tut_queue();
     // a=tut_deque();
     // a=tut_pq();
+    // a=tut_lst();
+    // a=nxt_perm();
+    // a=pop_count();
+    a = final_op();
     return a;
 }
